@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 3.6.0-rc2)
+project(cppRtcToken)
+
+set(CMAKE_CXX_STANDARD 14)
+include_directories(thirdparty/include)
+link_directories(thirdparty/lib/mac)
+file(GLOB_RECURSE token token/*.cpp)
+message(info "token files ${token}")
+add_executable(token main.cpp ${token})
+target_link_libraries(token PRIVATE ssl crypto)
